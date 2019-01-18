@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "主页";
+}
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/HomeJs")
+@Styles.Render("~/Content/Homecss")
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script>
+        $(function () {
+            //drawChart();
+            //drawPie();
+        })
+    </script>
+</head>
+<body>
+    <div class="col-md-12">
+        <div class="form-inline">
+            <div class="form-group">
+                <label>选择自动线</label>
+                <select id="selectline" class="selectpicker show-tick form-control" data-live-search="true">
+                    @*<option value="1">DCT自动一线</option>
+                        <option value="2">DCT自动二线</option>*@
+                </select>
+            </div>
+            <div class="form-group">
+                <label>选择产品</label>
+                <select id="selectproduct" class="selectpicker show-tick form-control" data-live-search="true">
+                    @*<option value="1">BYD6DT35-1</option>
+                        <option value="2">BYD6DT35-2</option>*@
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">配置数据</button>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">导出列表</button>
+            </div>
+            <div class="form-group">
+                <input type="date" class="select-date" id="date_info" />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="jumbotron">
+        <div>
+            <table class="table">
+                <caption>机械手运行状态</caption>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>上料机</th>
+                        <th>一次精车01</th>
+                        <th>一次精车02</th>
+                        <th>一拉</th>
+                        <th>一挤</th>
+                        <th>二挤</th>
+                        <th>二次精车01</th>
+                        <th>二次精车02</th>
+                        <th>二拉</th>
+                        <th>三次精车</th>
+                        <th>倒角01</th>
+                        <th>倒角02</th>
+                        <th>铣内槽</th>
+                        <th>下料机</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><th>1#机械手</th><th colspan="3" style="background-color:orange"><span id="progressBar1" class="bar"></span></th></tr>
+                    <tr><th>2#机械手</th><th colspan="4"></th><th colspan="2" style="background-color:orange"><span id="progressBar2" class="bar"></span></th></tr>
+                    <tr><th>3#机械手</th><th colspan="6"></th><th colspan="2" style="background-color:orange"><span id="progressBar3" class="bar"></span></th></tr>
+                    <tr><th>4#机械手</th><th colspan="8"></th><th colspan="2" style="background-color:orange"><span id="progressBar4" class="bar"></span></th></tr>
+                    <tr><th>5#机械手</th><th colspan="10"></th><th colspan="2" style="background-color:orange"><span id="progressBar5" class="bar"></span></th></tr>
+                    <tr><th>6#机械手</th><th colspan="12"></th><th colspan="2" style="background-color:orange"><span id="progressBar6" class="bar"></span></th></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-3">
+            <div class="div1">
+                <p class="p1">当天完成率</p>
+                <p id="finishedpercent" class="p2"></p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="div2">
+                <p class="p1">待加工产品数</p>
+                <p id="remainnumber" class="p2"></p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="div3">
+                <p class="p1">已加工产品数</p>
+                <p id="finishednum" class="p2"></p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="div4">
+                <p class="p1">正在加工产品</p>
+                <p id="productname" class="p2"></p>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div id="chart1" class="col-md-6"></div>
+        <div id="chart2" class="col-md-6"></div>
+    </div>
+</body>

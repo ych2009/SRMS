@@ -1,0 +1,196 @@
+﻿* {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    box-sizing: border-box;
+}
+*:before, *:after {
+box-sizing: inherit;
+}
+body {
+background-color:transparent;
+
+}
+
+.col-md-2,
+.col-md-3,
+.col-md-4 {
+    padding: 0px 0px
+}
+
+.col-md-12 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.row .div1,
+.div3 {
+    height: 60px;
+    float: none;
+    display: block;
+    margin-top:10px;
+    background-color: orange;
+}
+.row .div2,
+.div4{
+    height: 60px;
+    float: none;
+    display: block;
+    margin-top: 10px;
+    background-color:green;
+}
+
+.div5 {
+    height: 60px;
+    float: none;
+    display: block;
+    margin-top: 10px;
+    background-color: lightskyblue;
+}
+
+.div6 {
+    height: 60px;
+    float: none;
+    display: block;
+    margin-top: 10px;
+    background-color: lightskyblue;
+}
+
+.div7 {
+    height: 60px;
+    float: none;
+    display: block;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.div5 select {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    top: 0px;
+    height: 30px;
+    background-color: transparent;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.div5 input {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    top: 0px;
+    height: 100%;
+    background-color: transparent;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.div6 input {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    top: 0px;
+    height: 30px;
+    background-color: transparent;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.div7 input {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    top: 0px;
+    line-height: 60px;
+    background-color: transparent;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bolder;
+    border:none;
+}
+
+.row div .p1 {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.row div .p2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bolder;
+    color:white;
+}
+
+#chart1,#chart2 {
+    height: 300px;
+    margin: 0px 0px;
+    background-color: transparent;
+    border: 1px solid red;
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    table-layout: fixed;
+}
+
+    table caption {
+        text-align:center;
+        font-size: 14px;
+        color: white;
+        font-style: italic;
+        font-weight: bolder;
+        background-color: orangered;
+    }
+
+    table thead tr {
+        font-size: 12px;
+        font-style: italic;
+        font-weight: normal;
+        background-color: cyan;
+    }
+
+    table tbody tr {
+        font-size: 12px;
+        font-weight: normal;
+        background-color: white;
+    }
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+    padding: 0px 0px 0px 0px;
+    line-height: 30px;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+@media screen and (min-width: 768px) {
+    .container .jumbotron,
+    .container-fluid .jumbotron {
+        padding: 5px 5px 5px 5px; 
+    }
+}
+.bar {
+    display: inline-block;
+    background: chartreuse;
+    color: black;
+    font-weight: bold;
+    padding: 0 5px;
+    text-align: left;
+    border-radius: 0px;
+    border-right: 1px solid #999;
+    height: 100%;
+    line-height: 30px;
+}
+
+

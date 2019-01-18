@@ -1,0 +1,82 @@
+﻿@model SRMS.Models.deviceworkinginfoSet
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>deviceworkinginfoSet</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.runningstatus)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.runningstatus)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mainspeed)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mainspeed)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.errorcount)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.errorcount)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.totalcount)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.totalcount)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.buildtime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.buildtime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.isruning)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.isruning)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.isfinished)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.isfinished)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

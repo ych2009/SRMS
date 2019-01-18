@@ -1,0 +1,88 @@
+﻿@model SRMS.Models.deviceworkinginfoSet
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>deviceworkinginfoSet</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.runningstatus)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.runningstatus)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mainspeed)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mainspeed)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.errorcount)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.errorcount)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.totalcount)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.totalcount)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.buildtime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.buildtime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.isruning)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.isruning)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.isfinished)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.isfinished)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

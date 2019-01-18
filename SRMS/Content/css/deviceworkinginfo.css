@@ -1,0 +1,116 @@
+﻿* {
+    margin: 0;
+    padding: 0
+}
+
+    *:before, *:after {
+        box-sizing: inherit;
+    }
+
+@media screen and (min-width: 768px) {
+    .container .jumbotron,
+    .container-fluid .jumbotron {
+        padding: 5px 5px 5px 5px;
+    }
+}
+body {
+    background-color: transparent;
+}
+
+.col-md-12 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+table {
+    border: 2px solid #0094ff;
+    table-layout: fixed;
+}
+
+    table caption {
+        text-align: center;
+        font-size: 20px;
+        color: white;
+        font-style:normal;
+        font-weight: bolder;
+        background-color:darkcyan;
+    }
+
+    table thead tr {
+        /*font-size: 12px;*/
+        font-style: normal;
+        font-weight: normal;
+        background-color: cyan;
+    }
+
+    table tbody tr {
+        font-size: 12px;
+        font-weight: normal;
+        background-color: white;
+    }
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+    text-align: center;
+    line-height: 45px;
+    vertical-align: middle;
+    border-right: 2px solid #0094ff;
+}
+.p1,
+.p2,
+.p3,
+.p4
+{
+    margin:2px 2px;
+    padding:2px 2px;
+    position:relative;
+    width: auto;
+    height: 24px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 0.8em;
+    color: #fff;
+    background-color:darkorange;
+    border-radius: 12px;
+}
+.p5 {
+    margin: 2px 2px;
+    position: relative;
+    width: auto;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    color: red;
+    background-color: transparent;
+    border-radius: 5px;
+}
+.rowtitle {
+    background-color:darkgray ;
+}
+
+.coltitle>th {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.rowtitlep {
+    margin: 2px 2px;
+    position: relative;
+    width: auto;
+    height: auto;
+    line-height: 20px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 1.3em;
+    color: green;
+    background-color: darkgray;
+    border-radius: 5px;
+}
+
+

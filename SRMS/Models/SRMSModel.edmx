@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SRMSModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="SRMSModelStoreContainer">
+    <EntitySet Name="deviceinfoSet" EntityType="SRMSModel.Store.deviceinfoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="deviceworkinginfoSet" EntityType="SRMSModel.Store.deviceworkinginfoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="lineinfoSet" EntityType="SRMSModel.Store.lineinfoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="manipulatorinfoSet" EntityType="SRMSModel.Store.manipulatorinfoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="productinfoSet" EntityType="SRMSModel.Store.productinfoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="lineworkinfoSet" EntityType="SRMSModel.Store.lineworkinfoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="workdetailSet" EntityType="SRMSModel.Store.workdetailSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="lineinfoSetdeviceinfoSet" Association="SRMSModel.Store.lineinfoSetdeviceinfoSet">
+      <End Role="lineinfoSet" EntitySet="lineinfoSet" />
+      <End Role="deviceinfoSet" EntitySet="deviceinfoSet" />
+    </AssociationSet>
+    <AssociationSet Name="lineinfoSetmanipulatorinfoSet" Association="SRMSModel.Store.lineinfoSetmanipulatorinfoSet">
+      <End Role="lineinfoSet" EntitySet="lineinfoSet" />
+      <End Role="manipulatorinfoSet" EntitySet="manipulatorinfoSet" />
+    </AssociationSet>
+    <AssociationSet Name="lineinfoSetlineworkinfo" Association="SRMSModel.Store.lineinfoSetlineworkinfo">
+      <End Role="lineinfoSet" EntitySet="lineinfoSet" />
+      <End Role="lineworkinfo" EntitySet="lineworkinfoSet" />
+    </AssociationSet>
+    <AssociationSet Name="lineworkinfoworkdetail" Association="SRMSModel.Store.lineworkinfoworkdetail">
+      <End Role="lineworkinfo" EntitySet="lineworkinfoSet" />
+      <End Role="workdetail" EntitySet="workdetailSet" />
+    </AssociationSet>
+    <AssociationSet Name="deviceinfoSetdeviceworkinginfoSet" Association="SRMSModel.Store.deviceinfoSetdeviceworkinginfoSet">
+      <End Role="deviceinfoSet" EntitySet="deviceinfoSet" />
+      <End Role="deviceworkinginfoSet" EntitySet="deviceworkinginfoSet" />
+    </AssociationSet>
+    <AssociationSet Name="lineworkinfoproductinfoSet" Association="SRMSModel.Store.lineworkinfoproductinfoSet">
+      <End Role="lineworkinfo" EntitySet="lineworkinfoSet" />
+      <End Role="productinfoSet" EntitySet="productinfoSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="deviceinfoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="productor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="devicetype" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="totallifetime" Type="int" Nullable="false" />
+    <Property Name="usedlifetime" Type="int" Nullable="false" />
+    <Property Name="buildtime" Type="datetime" Nullable="false" />
+    <Property Name="lineinfoSetId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="deviceworkinginfoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="runningstatus" Type="bit" Nullable="false" />
+    <Property Name="mainspeed" Type="int" Nullable="false" />
+    <Property Name="errorcount" Type="int" Nullable="false" />
+    <Property Name="totalcount" Type="int" Nullable="false" />
+    <Property Name="buildtime" Type="datetime" Nullable="false" />
+    <Property Name="isruning" Type="bit" Nullable="false" />
+    <Property Name="isfinished" Type="bit" Nullable="false" />
+    <Property Name="iswarning" Type="bit" Nullable="false" />
+    <Property Name="deviceinfoSet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lineinfoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="buildtime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="manipulatorinfoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="status" Type="bit" Nullable="false" />
+    <Property Name="x" Type="int" Nullable="false" />
+    <Property Name="y" Type="int" Nullable="false" />
+    <Property Name="speed" Type="int" Nullable="false" />
+    <Property Name="catchnum" Type="int" Nullable="false" />
+    <Property Name="buildtime" Type="datetime" Nullable="false" />
+    <Property Name="lineinfoSetId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="productinfoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="infos" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="buildtime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lineworkinfoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sampletime" Type="nvarchar(max)" Nullable="false" DefaultValue="0" />
+    <Property Name="totalnum" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="finishnum" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="errornum" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="bulidtime" Type="datetime" Nullable="false" />
+    <Property Name="lineinfoSetId" Type="int" Nullable="false" />
+    <Property Name="productinfoSetId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="workdetailSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="finishnum" Type="int" Nullable="false" DefaultValue="0" />
+    <Property Name="lineworkinfoId" Type="int" Nullable="false" />
+    <Property Name="buildtime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="lineinfoSetdeviceinfoSet">
+    <End Role="lineinfoSet" Type="SRMSModel.Store.lineinfoSet" Multiplicity="1" />
+    <End Role="deviceinfoSet" Type="SRMSModel.Store.deviceinfoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lineinfoSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="deviceinfoSet">
+        <PropertyRef Name="lineinfoSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="lineinfoSetmanipulatorinfoSet">
+    <End Role="lineinfoSet" Type="SRMSModel.Store.lineinfoSet" Multiplicity="1" />
+    <End Role="manipulatorinfoSet" Type="SRMSModel.Store.manipulatorinfoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lineinfoSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="manipulatorinfoSet">
+        <PropertyRef Name="lineinfoSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="lineinfoSetlineworkinfo">
+    <End Role="lineinfoSet" Type="SRMSModel.Store.lineinfoSet" Multiplicity="1" />
+    <End Role="lineworkinfo" Type="SRMSModel.Store.lineworkinfoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lineinfoSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="lineworkinfo">
+        <PropertyRef Name="lineinfoSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="lineworkinfoworkdetail">
+    <End Role="lineworkinfo" Type="SRMSModel.Store.lineworkinfoSet" Multiplicity="1" />
+    <End Role="workdetail" Type="SRMSModel.Store.workdetailSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lineworkinfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="workdetail">
+        <PropertyRef Name="lineworkinfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="deviceinfoSetdeviceworkinginfoSet">
+    <End Role="deviceinfoSet" Type="SRMSModel.Store.deviceinfoSet" Multiplicity="1" />
+    <End Role="deviceworkinginfoSet" Type="SRMSModel.Store.deviceworkinginfoSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="deviceinfoSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="deviceworkinginfoSet">
+        <PropertyRef Name="deviceinfoSet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="lineworkinfoproductinfoSet">
+    <End Role="lineworkinfo" Type="SRMSModel.Store.lineworkinfoSet" Multiplicity="*" />
+    <End Role="productinfoSet" Type="SRMSModel.Store.productinfoSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="productinfoSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="lineworkinfo">
+        <PropertyRef Name="productinfoSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SRMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="deviceinfoSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="productor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="devicetype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="totallifetime" Type="Int32" Nullable="false" />
+          <Property Name="usedlifetime" Type="Int32" Nullable="false" />
+          <Property Name="buildtime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="lineinfoSet" Relationship="SRMSModel.lineinfoSetdeviceinfoSet" FromRole="deviceinfoSet" ToRole="lineinfoSet" />
+          <Property Name="lineinfoSetId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="deviceworkinginfoSet" Relationship="SRMSModel.deviceinfoSetdeviceworkinginfoSet" FromRole="deviceinfoSet" ToRole="deviceworkinginfoSet" />
+        </EntityType>
+        <EntityType Name="deviceworkinginfoSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="runningstatus" Type="Boolean" Nullable="false" />
+          <Property Name="mainspeed" Type="Int32" Nullable="false" />
+          <Property Name="errorcount" Type="Int32" Nullable="false" />
+          <Property Name="totalcount" Type="Int32" Nullable="false" />
+          <Property Name="buildtime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="deviceinfoSet" Relationship="SRMSModel.deviceinfoSetdeviceworkinginfoSet" FromRole="deviceworkinginfoSet" ToRole="deviceinfoSet" />
+          <Property Name="isruning" Type="Boolean" Nullable="false" />
+          <Property Name="isfinished" Type="Boolean" Nullable="false" />
+          <Property Name="iswarning" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="lineinfoSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="buildtime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="deviceinfoSet" Relationship="SRMSModel.lineinfoSetdeviceinfoSet" FromRole="lineinfoSet" ToRole="deviceinfoSet" />
+          <NavigationProperty Name="manipulatorinfoSet" Relationship="SRMSModel.lineinfoSetmanipulatorinfoSet" FromRole="lineinfoSet" ToRole="manipulatorinfoSet" />
+          <NavigationProperty Name="lineworkinfo" Relationship="SRMSModel.lineinfoSetlineworkinfo" FromRole="lineinfoSet" ToRole="lineworkinfo" />
+        </EntityType>
+        <EntityType Name="manipulatorinfoSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="Boolean" Nullable="false" />
+          <Property Name="x" Type="Int32" Nullable="false" />
+          <Property Name="y" Type="Int32" Nullable="false" />
+          <Property Name="speed" Type="Int32" Nullable="false" />
+          <Property Name="catchnum" Type="Int32" Nullable="false" />
+          <Property Name="buildtime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="lineinfoSet" Relationship="SRMSModel.lineinfoSetmanipulatorinfoSet" FromRole="manipulatorinfoSet" ToRole="lineinfoSet" />
+          <Property Name="lineinfoSetId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productinfoSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="infos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="buildtime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="lineworkinfo" Relationship="SRMSModel.lineworkinfoproductinfoSet" FromRole="productinfoSet" ToRole="lineworkinfo" />
+        </EntityType>
+        <EntityContainer Name="SRMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="deviceinfoSet" EntityType="Self.deviceinfoSet" />
+          <EntitySet Name="deviceworkinginfoSet" EntityType="Self.deviceworkinginfoSet" />
+          <EntitySet Name="lineinfoSet" EntityType="Self.lineinfoSet" />
+          <EntitySet Name="manipulatorinfoSet" EntityType="Self.manipulatorinfoSet" />
+          <EntitySet Name="productinfoSet" EntityType="Self.productinfoSet" />
+          <EntitySet Name="lineworkinfoSet" EntityType="SRMSModel.lineworkinfo" />
+          <EntitySet Name="workdetailSet" EntityType="SRMSModel.workdetail" />
+          <AssociationSet Name="lineinfoSetdeviceinfoSet" Association="SRMSModel.lineinfoSetdeviceinfoSet">
+            <End Role="lineinfoSet" EntitySet="lineinfoSet" />
+            <End Role="deviceinfoSet" EntitySet="deviceinfoSet" />
+          </AssociationSet>
+          <AssociationSet Name="lineinfoSetmanipulatorinfoSet" Association="SRMSModel.lineinfoSetmanipulatorinfoSet">
+            <End Role="lineinfoSet" EntitySet="lineinfoSet" />
+            <End Role="manipulatorinfoSet" EntitySet="manipulatorinfoSet" />
+          </AssociationSet>
+          <AssociationSet Name="lineinfoSetlineworkinfo" Association="SRMSModel.lineinfoSetlineworkinfo">
+            <End Role="lineinfoSet" EntitySet="lineinfoSet" />
+            <End Role="lineworkinfo" EntitySet="lineworkinfoSet" />
+          </AssociationSet>
+          <AssociationSet Name="lineworkinfoworkdetail" Association="SRMSModel.lineworkinfoworkdetail">
+            <End Role="lineworkinfo" EntitySet="lineworkinfoSet" />
+            <End Role="workdetail" EntitySet="workdetailSet" />
+          </AssociationSet>
+          <AssociationSet Name="deviceinfoSetdeviceworkinginfoSet" Association="SRMSModel.deviceinfoSetdeviceworkinginfoSet">
+            <End Role="deviceinfoSet" EntitySet="deviceinfoSet" />
+            <End Role="deviceworkinginfoSet" EntitySet="deviceworkinginfoSet" />
+          </AssociationSet>
+          <AssociationSet Name="lineworkinfoproductinfoSet" Association="SRMSModel.lineworkinfoproductinfoSet">
+            <End Role="lineworkinfo" EntitySet="lineworkinfoSet" />
+            <End Role="productinfoSet" EntitySet="productinfoSet" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="lineworkinfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" />
+          <Property Name="sampletime" Type="String" Nullable="false" DefaultValue="0" />
+          <Property Name="totalnum" Type="Int32" Nullable="false" DefaultValue="0" />
+          <Property Name="finishnum" Type="Int32" Nullable="false" DefaultValue="0" />
+          <Property Name="errornum" Type="Int32" Nullable="false" DefaultValue="0" />
+          <Property Name="bulidtime" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="lineinfoSet" Relationship="SRMSModel.lineinfoSetlineworkinfo" FromRole="lineworkinfo" ToRole="lineinfoSet" />
+          <Property Name="lineinfoSetId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="workdetail" Relationship="SRMSModel.lineworkinfoworkdetail" FromRole="lineworkinfo" ToRole="workdetail" />
+          <NavigationProperty Name="productinfoSet" Relationship="SRMSModel.lineworkinfoproductinfoSet" FromRole="lineworkinfo" ToRole="productinfoSet" />
+          <Property Name="productinfoSetId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="workdetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="finishnum" Type="Int32" Nullable="false" DefaultValue="0" />
+          <NavigationProperty Name="lineworkinfo" Relationship="SRMSModel.lineworkinfoworkdetail" FromRole="workdetail" ToRole="lineworkinfo" />
+          <Property Name="lineworkinfoId" Type="Int32" Nullable="false" />
+          <Property Name="buildtime" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <Association Name="lineinfoSetdeviceinfoSet">
+          <End Type="SRMSModel.lineinfoSet" Role="lineinfoSet" Multiplicity="1" />
+          <End Type="SRMSModel.deviceinfoSet" Role="deviceinfoSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lineinfoSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="deviceinfoSet">
+              <PropertyRef Name="lineinfoSetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="lineinfoSetmanipulatorinfoSet">
+          <End Type="SRMSModel.lineinfoSet" Role="lineinfoSet" Multiplicity="1" />
+          <End Type="SRMSModel.manipulatorinfoSet" Role="manipulatorinfoSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lineinfoSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="manipulatorinfoSet">
+              <PropertyRef Name="lineinfoSetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="lineinfoSetlineworkinfo">
+          <End Type="SRMSModel.lineinfoSet" Role="lineinfoSet" Multiplicity="1" />
+          <End Type="SRMSModel.lineworkinfo" Role="lineworkinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lineinfoSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="lineworkinfo">
+              <PropertyRef Name="lineinfoSetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="lineworkinfoworkdetail">
+          <End Type="SRMSModel.lineworkinfo" Role="lineworkinfo" Multiplicity="1" />
+          <End Type="SRMSModel.workdetail" Role="workdetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lineworkinfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="workdetail">
+              <PropertyRef Name="lineworkinfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="deviceinfoSetdeviceworkinginfoSet">
+          <End Type="SRMSModel.deviceinfoSet" Role="deviceinfoSet" Multiplicity="1" />
+          <End Type="SRMSModel.deviceworkinginfoSet" Role="deviceworkinginfoSet" Multiplicity="0..1" />
+        </Association>
+        <Association Name="lineworkinfoproductinfoSet">
+          <End Type="SRMSModel.lineworkinfo" Role="lineworkinfo" Multiplicity="*" />
+          <End Type="SRMSModel.productinfoSet" Role="productinfoSet" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="productinfoSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="lineworkinfo">
+              <PropertyRef Name="productinfoSetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SRMSModelStoreContainer" CdmEntityContainer="SRMSEntities">
+    <EntitySetMapping Name="deviceinfoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SRMSModel.deviceinfoSet)">
+        <MappingFragment StoreEntitySet="deviceinfoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="productor" ColumnName="productor" />
+          <ScalarProperty Name="devicetype" ColumnName="devicetype" />
+          <ScalarProperty Name="totallifetime" ColumnName="totallifetime" />
+          <ScalarProperty Name="usedlifetime" ColumnName="usedlifetime" />
+          <ScalarProperty Name="buildtime" ColumnName="buildtime" />
+          <ScalarProperty Name="lineinfoSetId" ColumnName="lineinfoSetId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deviceworkinginfoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SRMSModel.deviceworkinginfoSet)">
+        <MappingFragment StoreEntitySet="deviceworkinginfoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="runningstatus" ColumnName="runningstatus" />
+          <ScalarProperty Name="mainspeed" ColumnName="mainspeed" />
+          <ScalarProperty Name="errorcount" ColumnName="errorcount" />
+          <ScalarProperty Name="totalcount" ColumnName="totalcount" />
+          <ScalarProperty Name="buildtime" ColumnName="buildtime" />
+          <ScalarProperty Name="isruning" ColumnName="isruning" />
+          <ScalarProperty Name="isfinished" ColumnName="isfinished" />
+          <ScalarProperty Name="iswarning" ColumnName="iswarning" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lineinfoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SRMSModel.lineinfoSet)">
+        <MappingFragment StoreEntitySet="lineinfoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="buildtime" ColumnName="buildtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="manipulatorinfoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SRMSModel.manipulatorinfoSet)">
+        <MappingFragment StoreEntitySet="manipulatorinfoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="x" ColumnName="x" />
+          <ScalarProperty Name="y" ColumnName="y" />
+          <ScalarProperty Name="speed" ColumnName="speed" />
+          <ScalarProperty Name="catchnum" ColumnName="catchnum" />
+          <ScalarProperty Name="buildtime" ColumnName="buildtime" />
+          <ScalarProperty Name="lineinfoSetId" ColumnName="lineinfoSetId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productinfoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SRMSModel.productinfoSet)">
+        <MappingFragment StoreEntitySet="productinfoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="infos" ColumnName="infos" />
+          <ScalarProperty Name="buildtime" ColumnName="buildtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lineworkinfoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SRMSModel.lineworkinfo)">
+        <MappingFragment StoreEntitySet="lineworkinfoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sampletime" ColumnName="sampletime" />
+          <ScalarProperty Name="totalnum" ColumnName="totalnum" />
+          <ScalarProperty Name="finishnum" ColumnName="finishnum" />
+          <ScalarProperty Name="errornum" ColumnName="errornum" />
+          <ScalarProperty Name="bulidtime" ColumnName="bulidtime" />
+          <ScalarProperty Name="lineinfoSetId" ColumnName="lineinfoSetId" />
+          <ScalarProperty Name="productinfoSetId" ColumnName="productinfoSetId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="workdetailSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SRMSModel.workdetail)">
+        <MappingFragment StoreEntitySet="workdetailSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="finishnum" ColumnName="finishnum" />
+          <ScalarProperty Name="lineworkinfoId" ColumnName="lineworkinfoId" />
+          <ScalarProperty Name="buildtime" ColumnName="buildtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="deviceinfoSetdeviceworkinginfoSet" TypeName="SRMSModel.deviceinfoSetdeviceworkinginfoSet" StoreEntitySet="deviceworkinginfoSet">
+      <EndProperty Name="deviceinfoSet">
+        <ScalarProperty Name="Id" ColumnName="deviceinfoSet_Id" />
+      </EndProperty>
+      <EndProperty Name="deviceworkinginfoSet">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

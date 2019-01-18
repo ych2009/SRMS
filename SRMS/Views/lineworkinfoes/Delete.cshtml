@@ -1,0 +1,96 @@
+﻿@model SRMS.Models.lineworkinfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>lineworkinfo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.code)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.code)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sampletime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sampletime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.totalnum)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.totalnum)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.finishnum)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.finishnum)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.errornum)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.errornum)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.bulidtime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.bulidtime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.lineinfoSet.code)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.lineinfoSet.code)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>
